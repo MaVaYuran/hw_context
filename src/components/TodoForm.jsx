@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../context';
 
-const TodoForm = ({ onAdd }) => {
+const TodoForm = () => {
 	const [title, setTitle] = useState('');
+	const { addTodo } = useContext(AppContext);
 
 	const handdleSubmit = (e) => {
 		e.preventDefault();
 		if (!title.trim()) return;
-		onAdd(title);
+		addTodo(title);
 		setTitle('');
 	};
 

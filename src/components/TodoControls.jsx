@@ -1,4 +1,8 @@
-export const TodoControls = ({ isSorted, toggleSort, searchQuery, setSearchQuery }) => {
+import { useContext } from 'react';
+import { AppContext } from '../context';
+
+export const TodoControls = () => {
+	const { isSorted, toggleSort, searchQuery, setSearchQuery } = useContext(AppContext);
 	return (
 		<div>
 			<label>

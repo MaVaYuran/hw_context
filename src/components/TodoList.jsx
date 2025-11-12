@@ -1,16 +1,14 @@
+import { useContext } from 'react';
 import { TodoItem } from './TodoItem';
+import { AppContext } from '../context';
 
-const TodoList = ({ todos, onEdit, onToggle, onDelete }) => {
+const TodoList = () => {
+	const { todos } = useContext(AppContext);
+
 	return (
 		<ul>
 			{todos.map((todo) => (
-				<TodoItem
-					key={todo.id}
-					todo={todo}
-					onEdit={onEdit}
-					onToggle={onToggle}
-					onDelete={onDelete}
-				/>
+				<TodoItem key={todo.id} todo={todo} />
 			))}
 		</ul>
 	);
